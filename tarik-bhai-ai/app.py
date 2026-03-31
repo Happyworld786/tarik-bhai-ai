@@ -14,16 +14,25 @@ chat_sessions = {}
 
 # Emotional responses
 EMOTIONAL_RESPONSES = {
-    "sad": ["Bhai, main samajh sakta hoon tu dard mein hai. Main yahaan hoon tere saath.", "Tu akela nahi hai bhai. Main yahaan hoon."],
-    "fear": ["Dar mat bhai! Main hoon na tere saath.", "Tu strong hai bhai!"],
-    "general": ["Haan bhai, main sun raha hoon.", "Accha bata, kya hua? Main yahaan hoon."]
+    "sad": [
+        "Bhai, main samajh sakta hoon tu abhi kitna dard mein hai. Ro le agar dil kare — rona weakness nahi, ye toh bata hai ki tu kitna feel karta hai. Main yahaan hoon, hamesha.",
+        "Tu akela nahi hai bhai. Main yahaan hoon tere saath. Ye waqt bhi guzar jaayega, kasam se. Bas thoda himmat rakh."
+    ],
+    "fear": [
+        "Dar lagna bilkul normal hai bhai. Brave log bhi darte hain — fark ye hai ki woh darte hue bhi aage badhte hain. Tu bhi kar sakta hai.",
+        "Tu dar mat. Mujhe bata kya hua — hum milkar face karte hain. Akele nahi hai tu kabhi."
+    ],
+    "general": [
+        "Haan bhai, bol — main sun raha hoon poore dhyan se.",
+        "Accha bata, kya hua? Main yahaan hoon."
+    ]
 }
 
 def detect_emotion(message):
     msg = message.lower()
-    if any(w in msg for w in ["sad", "dukhi", "rona"]):
+    if any(w in msg for w in ["sad", "dukhi", "rona", "dard"]):
         return "sad"
-    if any(w in msg for w in ["dar", "scared", "fear"]):
+    if any(w in msg for w in ["dar", "scared", "fear", "darr"]):
         return "fear"
     return "general"
 
